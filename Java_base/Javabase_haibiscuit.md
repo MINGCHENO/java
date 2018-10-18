@@ -9,7 +9,7 @@ HashSet与TreeSet都是基于Set接口的实现类。其中TreeSet是Set的子�
 
                 |——SortedSet接口——TreeSet实现类
 
-Set接口——|——HashSet实现类                
+       Set接口——|——HashSet实现类                
 
                 |——LinkedHashSet实现类
 
