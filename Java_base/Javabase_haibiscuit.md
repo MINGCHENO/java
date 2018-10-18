@@ -1,5 +1,3 @@
-#主要讲解java数据结构的相关知识
-
 HashSet 与TreeSet和LinkedHashSet的区别
 Set接口
       Set不允许包含相同的元素，如果试图把两个相同元素加入同一个集合中，add方法返回false。
