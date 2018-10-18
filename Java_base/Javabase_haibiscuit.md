@@ -1,6 +1,7 @@
 # HashSet 与TreeSet和LinkedHashSet的区别
 
 ## Set接口
+### Set有以下特点
         * Set不允许包含相同的元素，如果试图把两个相同元素加入同一个集合中，add方法返回false。
         * Set判断两个对象相同不是使用==运算符，而是根据equals方法。也就是说，只要两个对象用equals方法比较返回true，Set就不会接受这两个对象。
 
@@ -30,7 +31,7 @@
 
 
 ## TreeSet
-
+### TreeSet有以下特点
       * TreeSet类型是J2SE中唯一可实现自动排序的类型
 
       * TreeSet是SortedSet接口的唯一实现类，TreeSet可以确保集合元素处于排序状态。TreeSet支持两种排序方式，自然排序 和定制排序，其中自然排序为默认的排序方式。向  TreeSet中加入的应该是同一个类的对象。
@@ -47,5 +48,6 @@
 
 
 ## LinkedHashSet
+### LinkedHashSe有以下特点
       * LinkedHashSet集合同样是根据元素的hashCode值来决定元素的存储位置，但是它同时使用链表维护元素的次序。这样使得元素看起 来像是以插入顺 序保存的，也就是说，当遍历该集合时候，LinkedHashSet将会以元素的添加顺序访问集合的元素。
       * LinkedHashSet在迭代访问Set中的全部元素时，性能比HashSet好，但是插入时性能稍微逊色于HashSet。
