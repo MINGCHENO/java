@@ -1,4 +1,4 @@
-## Java 8 / Java 7 为我们提供了什么新功能
+### Java 8 / Java 7 为我们提供了什么新功能
 #### 所有解答来自google
 [java8新特性详情见连接](https://www.jianshu.com/p/5b800057f2d8)
 1. Lambda表达式和函数式接口
@@ -25,7 +25,7 @@ Lambda的设计者们为了让现有的功能与Lambda表达式良好兼容，�
 9. Nashorn JavaScript引擎
 10. 对Base64编码的支持
 
-## 请简述一下 Ajax 的原理及实现步骤
+### 请简述一下 Ajax 的原理及实现步骤
 AJAX即“Asynchronous Javascript And XML”（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发技术。
 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新.
 
@@ -42,7 +42,7 @@ post 请求
 4. 设置回调函数onreadystatechange = callback
 5. Send
 
-## 请简述 Servlet 的生命周期及其相关的方法
+### 请简述 Servlet 的生命周期及其相关的方法
 init()方法   service()方法  destroy()方法
 Servlet的生命周期是由Servlet容器来控制的，它始于装入Web服务器的内存时，并在终止或重新装入Servlet时结束。这项操作一般是动态执行的,并实现javax.servlet.Servlet接口.
 ![servlet生命周期见图](https://img-blog.csdn.net/20130825201025734?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFwcHlsZWU2Njg4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
@@ -57,7 +57,7 @@ Servlet被实例化后，Servlet容器将调用每个Servlet的init方法来实�
 一个Servlet实例一旦终止，就不允许再次被调用，只能等待被卸载。
 Servlet一旦终止，Servlet实例即可被垃圾回收，处于“卸载”状态，如果Servlet容器被关闭，Servlet也会被卸载，一个Servlet实例只能初始化一次，但可以创建多个相同的Servlet实例。如相同的Servlet可以在根据不同的配置参数连接不同的数据库时创建多个实例。
 
-## volatile 修饰符的有过什么实践
+### volatile 修饰符的有过什么实践
 对一个共享变量使用Volatile关键字保证了线程间对该数据的可见性，即不会读到脏数据.
 
 Java 中可以创建 volatile 类型数组，不过只是一个指向数组的引用，而不是整个数组。如果改变引用指向的数组，将会受到 volatile 的保护，但是如果多个线程同时改变数组的元素，volatile 标示符就不能起到之前的保护作用.
@@ -68,7 +68,16 @@ Java 中可以创建 volatile 类型数组，不过只是一个指向数组的�
 
 volatile 变量提供顺序和可见性保证，例如，JVM 或者 JIT为了获得更好的性能会对语句重排序，但是 volatile 类型变量即使在没有同步块的情况下赋值也不会与其他语句重排序。 volatile 提供 happens-before 的保证，确保一个线程的修改能对其他线程是可见的。某些情况下，volatile 还能提供原子性，如读 64 位数据类型，像 long 和 double 都不是原子的，但 volatile 类型的 double 和 long 就是原子的.
 
+### transient变量有什么特点
+我们都知道一个对象只要实现了Serilizable接口，这个对象就可以被序列化，java的这种序列化模式为开发者提供了很多便利，我们可以不必关系具体序列化的过程，只要这个类实现了Serilizable接口，这个类的所有属性和方法都会自动序列化.java 的transient关键字为我们提供了便利，你只需要实现Serilizable接口，将不需要序列化的属性前添加关键字transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中.
 
+1. 一旦变量被transient修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问。
+
+2. transient关键字只能修饰成员变量，而不能修饰局部变量和方法和类。注意，本地变量是不能被transient关键字修饰的。变量如果是用户自定义类变量，则该类需要实现Serializable接口。
+
+3. 被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化
+
+4. Java中，对象的序列化可以通过实现两种接口来实现，若实现的是Serializable接口，则所有的序列化将会自动进行，若实现的是Externalizable接口，则没有任何东西可以自动序列化，需要在writeExternal方法中进行手工指定所要序列化的变量，这与是否被transient修饰无关。因此第二个例子输出的是变量content初始化的内容，而不是null.
 
 
 
